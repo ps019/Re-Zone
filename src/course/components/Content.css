@@ -1,0 +1,63 @@
+
+.Pallete{
+    display: flex;
+    flex-direction: row;
+}
+
+.Active-Pallete{
+    background: linear-gradient(33deg, hsla(0, 1%, 50%, 0.534), hsla(0, 2%, 64%, 0.651), hsla(0, 0%, 88%, 0.726));
+    box-shadow: 10px 0 10px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    height: 950px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    animation: MenuIn 1s ease-in-out;
+    .list{
+        display: block;
+    }
+}
+.Inactive-Pallete{
+    width: 0;
+    height: 950px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: linear-gradient(33deg, hsla(0, 1%, 50%, 0.534), hsla(0, 2%, 64%, 0.651), hsla(0, 0%, 88%, 0.726));
+    box-shadow: 10px 0 10px rgba(0, 0, 0, 0.3);
+    animation: MenuOut 1s ease-out;
+    .list{
+        display: none;
+    }
+}
+
+@keyframes MenuIn {
+    100% {
+        width: 400px;
+    }
+    0% {
+        width: 0;
+    }
+}
+
+@keyframes MenuOut {
+    100% {
+        width: 0;
+    }
+    0% {
+        width: 400px;
+    }
+}
+
+.Active-Menu-Button{
+    width: 70px;
+    height: 60px;
+    border: none;
+    color: rgb(0, 0, 0);
+}
+.Inactive-Menu-Button{
+    width: 70px;
+    height: 60px;
+    border: none;
+    color: rgb(0, 0, 0);
+}

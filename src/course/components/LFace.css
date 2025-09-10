@@ -1,0 +1,189 @@
+/* === Face Component Styling (Light-Elegant, Center-Aligned, Stylish) === */
+
+.light .All-Face-Content {
+  padding: 2rem;
+  background-color: #fdfdfd;
+  color: #1a1a1a;
+  max-width: 1000px;
+  margin: auto;
+  font-family: 'Georgia', serif;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+}
+
+.light form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.light .Basic-Info,
+.light form > div {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.light input[type="text"],
+.light input[type="number"],
+.light select,
+.light input[type="file"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: #f3f4f6;
+  color: #1a1a1a;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+  font-family: 'Georgia', serif;
+}
+
+.light input[type="text"]:focus,
+.light input[type="number"]:focus,
+.light select:focus {
+  border-color: #c084fc;
+  outline: none;
+  background-color: #fafafa;
+}
+
+.light hr {
+  border: 0;
+  height: 1px;
+  background: #e5e7eb;
+  margin: 1rem 0;
+}
+
+.light label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #4b5563;
+  font-family: 'Georgia', serif;
+}
+
+.light input[type="range"] {
+  width: 100%;
+  margin-top: 0.5rem;
+  appearance: none;
+  height: 4px;
+  background: #d1d5db;
+  border-radius: 10px;
+}
+
+.light input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #a78bfa;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.light input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 0.5rem;
+  accent-color: #a78bfa;
+}
+
+.light .sleep-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.light .sleep-img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.light .sleep-range {
+  width: 100%;
+  max-width: 400px;
+}
+
+.light .flex {
+  display: flex;
+}
+
+.light .flex-col {
+  flex-direction: column;
+}
+
+.light .items-center {
+  align-items: center;
+}
+
+.light .gap-6 {
+  gap: 1.5rem;
+}
+
+.light .text-white {
+  color: #222 !important;
+}
+
+.light .block {
+  display: block;
+}
+
+.light .mt-10 {
+  margin-top: 2.5rem;
+}
+
+.light .max-w-3xl {
+  max-width: 48rem;
+}
+
+.light .mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.light .bg-black {
+  background-color: #f0f0f0 !important;
+}
+
+.light .p-4 {
+  padding: 1rem;
+}
+
+.light .rounded-lg {
+  border-radius: 0.75rem;
+}
+
+.light .whitespace-pre-wrap {
+  white-space: pre-wrap;
+}
+
+.light .YN-section {
+  display: none;
+}
+
+.light .Button {
+  background-color: #e0d4fd;
+  color: #1a1a1a;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Georgia', serif;
+  transition: background-color 0.3s ease;
+}
+
+.light .Bbutton:hover {
+  background-color: #c084fc;
+  color: white;
+}
+.light .Prompt{
+  text-align: start;
+  font-family: "Inter", "roboto";
+}

@@ -1,0 +1,422 @@
+/* === Venus-Inspired Light Theme CSS (Updated for New React Router Structure) === */
+
+.light * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.light body {
+  font-family: 'Inter', 'Poppins', sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.light .Main-Header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  background: linear-gradient(145deg, #ffffff, #f3f4f6);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #e5e7eb;
+  animation: fadeIn 0.6s ease-out both;
+  flex-wrap: wrap;
+  flex-direction: row;
+  transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+.light .roast-logo {
+  display: flex;
+  gap: 0.1rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #111827;
+  animation: roastReveal 1.6s ease forwards;
+  text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.1);
+  flex-wrap: nowrap;
+  letter-spacing: normal;
+  transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+
+.light .roast-logo .char {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  display: inline-block;
+  animation: roastChar 0.8s forwards ease-out;
+}
+
+.light .roast-logo .char:nth-child(1) { animation-delay: 0.1s; }
+.light .roast-logo .char:nth-child(2) { animation-delay: 0.2s; }
+.light .roast-logo .char:nth-child(3) { animation-delay: 0.3s; }
+.light .roast-logo .char:nth-child(4) { animation-delay: 0.4s; }
+.light .roast-logo .char:nth-child(5) { animation-delay: 0.5s; }
+.light .roast-logo .char:nth-child(6) { animation-delay: 0.6s; }
+.light .roast-logo .char:nth-child(7) { animation-delay: 0.7s; }
+
+@keyframes roastChar {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95) rotateX(90deg);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+    filter: blur(0);
+  }
+}
+
+@keyframes roastReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.light .Main-Nav {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex: 1 1 auto;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.light .Main-Nav::-webkit-scrollbar {
+  display: none;
+}
+
+.light .Contents {
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #374151;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.light .Contents:hover {
+  background-color: #e5e7eb;
+  color: #111827;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.light .Contents.active {
+  color: #111827;
+  font-weight: 600;
+  background-color: #d1d5db;
+  border-bottom: 2px solid #111827;
+}
+
+.light .Contents::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #111827;
+  transition: width 0.4s ease;
+}
+
+.light .Contents:hover::after,
+.light .Contents.active::after {
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.light .Contents:focus {
+  outline: 2px dashed #aaa;
+  outline-offset: 4px;
+  background-color: #f3f4f6;
+}
+
+/* -----------------------------
+   Mobile layout tweaks (≤ 960px)
+   ----------------------------- */
+@media (max-width: 960px) {
+  .light .Main-Header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.2rem;
+  }
+
+  .light .Main-Nav {
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .light .Main-Header {
+    padding: 1rem;
+  }
+
+  .light .roast-logo {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    gap: 0.1rem;
+  }
+
+  .light .Contents {
+    font-size: 1rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
+
+.light .Main-Header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+@media (min-width: 1200px) {
+  .light .Main-Nav {
+    gap: 2.8rem;
+  }
+}
+
+.light .Contents.button {
+  background-color: #e5e7eb;
+  color: #111827;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
+}
+
+.light .Contents.button:hover {
+  background-color: #d1d5db;
+}
+
+.light .ThemeToggleBtn {
+  background-color: #ffffff;
+  color: #1f2937;
+  border: 1px solid #d1d5db;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  border-radius: 8px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.light .ThemeToggleBtn:hover {
+  background-color: #f3f4f6;
+  color: #111827;
+  border-color: #9ca3af;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* === Venus-Inspired Light Theme CSS for Footer (Full-Width Enhanced) === */
+
+.light footer {
+  background: linear-gradient(145deg, #ffffff, #f3f4f6);
+  color: #1f2937;
+  padding: 3rem 5rem;
+  border-top: 1px solid #e5e7eb;
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease-out both;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  width: 100%;
+}
+
+.light .all-Fotter {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.light footer h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  color: #111827;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.6rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.light footer p,
+.light footer li {
+  font-size: 1.1rem;
+  color: #374151;
+  line-height: 1.7;
+  transition: color 0.3s ease;
+}
+
+.light footer a {
+  color: #4b5563;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.light footer a:hover {
+  color: #111827;
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+}
+
+.light footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.light footer ul li {
+  margin-bottom: 0.6rem;
+}
+
+/* Contact & FAQ Section Styling */
+.light #contact,
+.light #FAO {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.5s ease, transform 0.3s ease;
+}
+
+.light #contact:hover,
+.light #FAO:hover {
+  background: rgba(243, 244, 246, 0.95);
+  transform: translateY(-4px);
+}
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+  .light footer {
+    padding: 2.5rem 3rem;
+  }
+
+  .light footer h2 {
+    font-size: 1.6rem;
+  }
+
+  .light footer p,
+  .light footer li {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .light .all-Fotter {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .light footer {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .light .all-Fotter {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .light footer {
+    padding: 1.5rem;
+  }
+}
+
+/* ==================================================
+   MOBILE-ONLY NAVBAR (Hamburger + Smooth Animation)
+   Scoped to the .Mobile wrapper so desktop/laptop
+   remain unchanged.
+   ================================================== */
+
+.light .hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 110;
+}
+
+.light .hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #1f2937;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+
+.light .hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+.light .hamburger.open span:nth-child(2) { opacity: 0; }
+.light .hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+@media (max-width: 960px) {
+  .light .hamburger { display: flex; }
+
+  .Mobile .Main-Nav {
+    transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    flex-direction: column;
+    width: 100%;
+    background: linear-gradient(145deg, #ffffff, #f3f4f6);
+    border-top: 1px solid #e5e7eb;
+    gap: 0;
+    padding: 0;
+  }
+
+  .Mobile .Main-Nav.show {
+    max-height: 500px;
+    opacity: 1;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+}
+
+.Course-line{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}

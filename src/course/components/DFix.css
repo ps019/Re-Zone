@@ -1,0 +1,72 @@
+
+.dark .all-Fix{
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+
+.dark .parent-pillar {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100vh;
+}
+
+.dark .pillar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* start state */
+.dark .pillar-img {
+  height: 500px;
+  transform: translateY(200px);
+  text-align: center;
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.dark .pillar-img img {
+  height: 500px;
+  transition: all 0.4s ease;
+  content: url("/pillar.png"); /* default */
+}
+
+/* Animate in when .active is added */
+.dark .parent-pillar.active .pillar-img {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Hover effect: lift + glow */
+.dark .pillar-img:hover img {
+  transform: translateY(-50px) scale(1.05);
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: 
+    drop-shadow(0 0 6px rgb(255, 232, 99))
+    drop-shadow(0 0 2.5px rgb(255, 220, 60))
+    drop-shadow(0 0 4.0px rgb(255, 215, 0))
+    drop-shadow(0 0 6.0px rgba(255, 200, 0, 0.8))
+    drop-shadow(0 0 80px rgba(255, 180, 0, 0.6));
+}
+.dark .pillar-img:hover h2{
+  transform: translateY(-90px) scale(1.75) ;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* stagger delays */
+.dark .parent-pillar.active .pillar-img:nth-child(1) {
+  transition-delay: 0s;
+}
+.dark .parent-pillar.active .pillar-img:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.dark .parent-pillar.active .pillar-img:nth-child(3) {
+  transition-delay: 0.4s;
+}
+.dark .parent-pillar.active .pillar-img:nth-child(4) {
+  transition-delay: 0.6s;
+}
