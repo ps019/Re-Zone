@@ -1,0 +1,19 @@
+{
+  "name": "rezone-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently \"npm:dev-backend\" \"npm:dev-frontend\"",
+    "dev-backend": "cd BackEnd && npm run dev",
+    "dev-frontend": "cd FrontEnd/Re-Zone && npm run dev",
+    "install-all": "npm install && cd BackEnd && npm install && cd ../FrontEnd/Re-Zone && npm install",
+    "build-frontend": "cd FrontEnd/Re-Zone && npm run build",
+    "copy-frontend-build": "xcopy FrontEnd\\Re-Zone\\dist BackEnd\\public /E /I /Y",
+    "build": "npm run build-frontend && npm run copy-frontend-build",
+    "start-backend": "cd BackEnd && npm start",
+    "start": "npm run build && npm run start-backend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.0"
+  }
+}
