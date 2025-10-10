@@ -1,6 +1,6 @@
 const express = require('express');
 const UserModel = require('../database/UserSchema');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const router = express.Router();
 
 router.post('/login', async (req, res) => {
