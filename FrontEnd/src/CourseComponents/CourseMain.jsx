@@ -21,7 +21,7 @@ function MainCoursePage(){
                     }
                 })();
                 return (
-                    <NavLink key={i} to={`/${heading}`}>
+                    <NavLink key={i} to={`/Course/${heading}`}>
                         <div>
                             <h1 className="text-3xl font-bold mb-4 text-center decoration-none no-underline text-black ">
                                 {heading}

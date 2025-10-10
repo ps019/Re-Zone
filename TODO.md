@@ -1,5 +1,7 @@
-- [x] Install dotenv package
-- [x] Update server.js to load environment variables
-- [x] Update ConnectDB.js to use process.env.MONGO_URI
-- [ ] Update .env file with MONGO_URI (set MONGO_URI=your_mongodb_uri)
-- [ ] Redeploy to Render and set environment variable MONGO_URI in dashboard
+- [ ] Add _redirects file to FrontEnd/public/ for SPA routing on render
+- [ ] Add vite.svg to FrontEnd/public/
+- [ ] Add autocomplete="current-password" to password input in SignUp.jsx
+- [ ] Add autocomplete="current-password" to password input in logIn.jsx
+- [ ] Change axios URLs in SignUp.jsx and logIn.jsx to localhost:5000 for local dev
+- [ ] Start the backend server
+- [ ] Test the fixes

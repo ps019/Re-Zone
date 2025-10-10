@@ -7,7 +7,7 @@ function LogIn(){
     const [Password, setPassword] = useState('');
     const SendData = async() => {
         try{
-            const response = await axios.post('https://re-zone-backend.onrender.com/login', {
+            const response = await axios.post('http://localhost:5000/login', {
                 Email: Email,
                 Password: Password
             });
@@ -30,9 +30,9 @@ function LogIn(){
                     <div className="mb-4">
                         <input className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-400 placeholder:italic placeholder:text-sm" type="email" placeholder="Enter Email" onChange={(e)=>{
                             setEmail(e.target.value);
-                        }}/>.
+                        }}/>
                         <br/>
-                        <input className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-400 placeholder:italic placeholder:text-sm mt-4" type="password" placeholder="Enter Password" onChange={(e)=>{
+                        <input className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-400 placeholder:italic placeholder:text-sm mt-4" type="password" placeholder="Enter Password" autocomplete="current-password" onChange={(e)=>{
                             setPassword(e.target.value);
                         }}/>
                         <br/>
