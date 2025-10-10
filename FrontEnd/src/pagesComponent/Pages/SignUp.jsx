@@ -17,7 +17,7 @@ function SignUp(){
         }
 
         try{
-            const response = await axios.post('http://localhost:5000/SignUp', {
+            const response = await axios.post('https://re-zone-backend.onrender.com/SignUp', {
                 UserName: trimmedUserName,
                 Email: trimmedEmail,
                 Password: trimmedPassword

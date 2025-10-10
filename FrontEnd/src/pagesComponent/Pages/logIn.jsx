@@ -7,7 +7,7 @@ function LogIn(){
     const [Password, setPassword] = useState('');
     const SendData = async() => {
         try{
-            const response = await axios.post('http://localhost:5000/login', {
+            const response = await axios.post('https://re-zone-backend.onrender.com/login', {
                 Email: Email,
                 Password: Password
             });
