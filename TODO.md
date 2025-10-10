@@ -1,0 +1,5 @@
+- [x] Install dotenv package
+- [x] Update server.js to load environment variables
+- [x] Update ConnectDB.js to use process.env.MONGO_URI
+- [ ] Update .env file with MONGO_URI (set MONGO_URI=your_mongodb_uri)
+- [ ] Redeploy to Render and set environment variable MONGO_URI in dashboard
