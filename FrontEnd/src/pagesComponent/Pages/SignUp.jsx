@@ -17,7 +17,7 @@ function SignUp(){
         }
 
         try{
-            const response = await axios.post('http://localhost:5000/SignUp', {
+            const response = await axios.post('https://re-zone-backend.onrender.com/SignUp', {
                 UserName: trimmedUserName,
                 Email: trimmedEmail,
                 Password: trimmedPassword
@@ -49,7 +49,7 @@ function SignUp(){
                         }}/>
 
                         <br/>
-                        <input className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-400 placeholder:italic placeholder:text-sm mt-4" type="password" placeholder="Create Password" onChange={(e)=>{
+                        <input className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-400 placeholder:italic placeholder:text-sm mt-4" type="password" placeholder="Create Password" autocomplete="new-password" onChange={(e)=>{
                             setPassword(e.target.value);
                         }}/>
 
