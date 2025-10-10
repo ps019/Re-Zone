@@ -1,0 +1,3 @@
+- [x] Remove Topic state and setTopic calls from CourseMain.jsx to prevent infinite re-render
+- [x] Fix NavLink to use to={`/${heading}`} and remove element prop
+- [x] Add routes in pages.jsx for /Face, /Body, /Fashion, /Mind to render respective panels
