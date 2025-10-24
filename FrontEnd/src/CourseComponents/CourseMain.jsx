@@ -1,37 +1,54 @@
 import { NavLink } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import CourseBeneath from './CourseBeneath';
 
 function MainCoursePage(){
+    const pillarPictures = "pillar.png";
+    const pillars = [
+        { heading: "Face", link: "/Course/Face" },
+        { heading: "Body", link: "/Course/Body" },
+        { heading: "Fashion", link: "/Course/Fashion" },
+        { heading: "Mind", link: "/Course/Mind" },
+    ];
+    // Duplicate for seamless loop
+    const duplicatedPillars = [...pillars, ...pillars];
 
-    const pillarPictures = "pillar.png"
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % 4);
+        }, 3000); // 3 seconds interval
+
+        return () => clearInterval(interval);
+    }, []);
+
     return(
-        <div className="flex flex-col items-center justify-center w-full h-full grid grid-cols-4 gap-4">
-            {Array.from({ length: 4 }).map((_, i) => {
-                const heading = (() => {
-                    switch (i) {
-                        case 0:
-                            return "Face";
-                        case 1:
-                            return "Body";
-                        case 2:
-                            return "Fashion";
-                        case 3:
-                            return "Mind";
-                        default:
-                            return "Unknown";
-                    }
-                })();
-                return (
-                    <NavLink key={i} to={`/Course/${heading}`}>
-                        <div>
-                            <h1 className="text-3xl font-bold mb-4 text-center decoration-none no-underline text-black ">
-                                {heading}
-                            </h1>
-                            <img src={pillarPictures} alt="pillar" className="w-full h-auto"/>
-                        </div>
-                    </NavLink>
-                );
-            })}
+        <div>
+            <div className="pillar-carousel">
+                <div className="pillar-track" style={{ transform: `translateX(-${currentIndex * 33.33}%)` }}>
+                    {duplicatedPillars.map((pillar, i) => {
+                        // Calculate position relative to current index
+                        const relativeIndex = (i - currentIndex + 4) % 4;
+                        const isMiddle = relativeIndex === 1;
+                        const isSide = relativeIndex === 0 || relativeIndex === 2;
+                        return (
+                            <div key={i} className={`pillar-item ${isMiddle ? 'middle' : isSide ? 'side' : ''}`}>
+                                <NavLink to={pillar.link} className="pillar-link">
+                                    <div className="flex flex-col items-center">
+                                        <h1 className="pillar-title text-3xl font-bold mb-4 text-center text-black">
+                                            {pillar.heading}
+                                        </h1>
+                                        <img src={pillarPictures} alt="pillar" className="w-auto h-70"/>
+                                    </div>
+                                </NavLink>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+            <CourseBeneath />
         </div>
-    )
+    );
 }
 export default MainCoursePage;

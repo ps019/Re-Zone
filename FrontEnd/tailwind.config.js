@@ -7,7 +7,12 @@ export default {
     "./src/App.css"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        jakarta: ['"Plus Jakarta Sans"'],
+        historic: ['Historic'],
+      },
+    },
   },
   plugins: [],
 }

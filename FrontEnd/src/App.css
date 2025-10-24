@@ -1,21 +1,15 @@
 
+@reference "tailwindcss";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   html {
-    @apply h-full min-h-screen bg-gray-900 text-white;
     scroll-behavior: smooth;
-  }
-  body {
-    @apply flex flex-col;
-  }
-  main {
-    @apply flex-grow p-4 bg-gray-50;
-    overflow-y: scroll;
-    scrollbar-width: thin;
-    scrollbar-color: currentColor gray-800;
+    margin: 0;
+    overflow-x: hidden;
   }
 }
 
@@ -30,5 +24,64 @@
 ::-webkit-scrollbar-thumb {
   background: #1f2937;
   border-radius: 10px;
+}
+
+/* Pillar Animation Styles */
+.pillar-carousel {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 90vh;
+}
+
+.pillar-track {
+  display: flex;
+  width: calc(200% + 2 * 33.33%); /* For seamless loop with 3 visible */
+  transition: transform 1s ease; /* Smooth transition for shifting */
+}
+
+.pillar-item {
+  flex: 0 0 33.33%; /* Each pillar takes 33.33% width for 3 visible */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0;
+  height: auto;
+  transition: all 1s ease; /* Smooth transition for effects */
+}
+
+.pillar-item.middle {
+  filter: brightness(1.2) contrast(1.1);
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.8), 0 0 100px rgba(255, 255, 255, 0.6);
+  transform: scale(1.5) translateY(-25%);
+  z-index: 10;
+}
+
+.pillar-item.side {
+  filter: brightness(0.3) contrast(0.8);
+  opacity: 0.6;
+  transform: scale(0.8);
+  z-index: 5;
+}
+
+.pillar-title {
+  text-decoration: none;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+  font-family: 'Historic', sans-serif;
+  font-weight: lighter;
+  font-size: 2rem;
+}
+
+.pillar-item.middle .pillar-title {
+  text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8);
+  font-size: 3rem;
+}
+
+.pillar-link {
+  text-decoration: none;
 }
 
