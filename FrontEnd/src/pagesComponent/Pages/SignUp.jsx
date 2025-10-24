@@ -3,6 +3,8 @@ import { useState } from 'react';
 
 function SignUp(){
 
+    const [signUp, setSignUp] = useState(false);
+
     const [UserName, setUserName] = useState('');
     const [Email, setEmail] = useState('');
     const [Password, setPassword] = useState('');
@@ -23,6 +25,7 @@ function SignUp(){
                 Password: trimmedPassword
             });
             console.log('Signup successful:', response.data);
+            setSignUp(!signUp);
             }
         catch(error){
                 console.log('Error sending data:', error);
@@ -49,7 +52,7 @@ function SignUp(){
                         }}/>
 
                         <br/>
-                        <input className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-400 placeholder:italic placeholder:text-sm mt-4" type="password" placeholder="Create Password" autocomplete="new-password" onChange={(e)=>{
+                        <input className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-400 placeholder:italic placeholder:text-sm mt-4" type="password" placeholder="Create Password" autoComplete="new-password" onChange={(e)=>{
                             setPassword(e.target.value);
                         }}/>
 
@@ -57,6 +60,21 @@ function SignUp(){
                         <button className="w-full p-2 bg-blue-500 text-white rounded-md hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" type="submit">
                             Create Account
                         </button>
+                        {signUp ? (
+                            <div>
+                                <h2>You are signed in successfully!!</h2>
+                                <p>re-directing to home page in </p>
+
+                                <div>ELSE click here to see your profile
+                                    <a href="/Profile"><button>Profile</button></a>
+                                </div>
+                            </div>
+                        ) : (
+                            <div>
+                                <h2>Something went wrong</h2>
+                                <h3>Try again!!</h3>
+                            </div>
+                        )}
                     </div>
                 </form>
             </div>
