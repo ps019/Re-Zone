@@ -47,7 +47,7 @@ function MainCoursePage(){
                     })}
                 </div>
             </div>
-            <CourseBeneath />
+            <CourseBeneath />i
         </div>
     );
 }

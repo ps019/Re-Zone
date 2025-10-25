@@ -59,7 +59,7 @@ function Header(){
                             <a href='/' className="text-white hover:text-gray-300 no-underline mr-8"><img className="h-6 w-6" src={HomeIcon} alt=""/>Home</a>
                             <a href="/Course" className="text-white hover:text-gray-300 no-underline mr-8">Courses</a>
                             <a href="/Profile" className="text-white hover:text-gray-300 no-underline mr-8"><img className="w-6 h-6" src={ProfileIcon} alt="" />Profile</a>
-                            <a href="/Setting" className="text-white hover:text-gray-300 no-underline mr-8"><img className="w-6 h-6" src={SettingIcon} alt="" /></a>
+                            <a href="/Setting" className="text-white hover:text-gray-300 no-underline mr-8"><img className="w-6 h-6" src={SettingIcon} alt="" />Settings</a>
 
                         </nav>
                     </div>
