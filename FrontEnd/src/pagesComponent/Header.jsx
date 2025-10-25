@@ -10,7 +10,7 @@ function Header(){
     const [IsAuthorized, setIsAuthorized] = useState(false);
 
 
-    if(window.location.pathname === "/" && !IsAuthorized){
+    if(window.location.pathname === "/#/" && !IsAuthorized){
         return(<div className='flex bg-[#1a1a1a] text-white'>
                 <div className='w-300 h-200 overflow-hidden bg-[#1a1a1a] shadow-lg'>
                     <img src="Home-Page.png" className='w-full h-full object-cover' alt="" />
@@ -45,7 +45,7 @@ function Header(){
                     </div>
                 </div>
                  )}
-    else if(window.location.pathname === "/" && IsAuthorized){
+    else if(window.location.pathname === "/#/" && IsAuthorized){
             return(
                     <div className="flex justify-between items-center p-4 shadow-md m-0 bg-gray-200">
 
