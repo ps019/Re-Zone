@@ -1,4 +1,5 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import HomePage from "./Pages/HomePage";
 import SignUpPage from "./Pages/SignUp";
 import MainCoursePage from "../CourseComponents/CourseMain";
@@ -8,6 +9,12 @@ import FashionPanel from "../CourseComponents/Courses/Fashion/FashionPanel";
 import MentalityPanel from "../CourseComponents/Courses/Mentality/MentalityPanel";
 
 function Pages(){
+    const location = useLocation();
+
+    useEffect(() => {
+        console.log("Current route:", location.pathname);
+    }, [location]);
+
     return(
       <Routes>
         <Route path="/" element={<HomePage />} />
