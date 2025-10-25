@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Header(){
 
@@ -8,9 +9,11 @@ function Header(){
     const ProfileIcon = 'account.png'
 
     const [IsAuthorized, setIsAuthorized] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
 
 
-    if(window.location.pathname === "/" && !IsAuthorized){
+    if(location.pathname === "/" && !IsAuthorized){
         return(<div className='flex bg-[#1a1a1a] text-white'>
                 <div className='w-300 h-200 overflow-hidden bg-[#1a1a1a] shadow-lg'>
                     <img src="Home-Page.png" className='w-full h-full object-cover' alt="" />
@@ -20,7 +23,7 @@ function Header(){
                             <h1 className=''><b><i>" Redefine, redesign and transform your life. "</i></b></h1>
                             <h3>Re-Zone Your life with us.</h3>
                             <button onClick={() => {
-                                window.location.pathname = "/SignUp"
+                                navigate("/SignUp")
                             }}
                             className='w-60 h-20 rounded-[75px] text-[1.5rem] mt-10 mb-20 justify-center'
                             >Get Started</button>
@@ -45,7 +48,7 @@ function Header(){
                     </div>
                 </div>
                  )}
-    else if(window.location.pathname === "/" && IsAuthorized){
+    else if(location.pathname === "/" && IsAuthorized){
             return(
                     <div className="flex justify-between items-center p-4 shadow-md m-0 bg-gray-200">
 
@@ -56,10 +59,10 @@ function Header(){
 
                         <nav className="flex items-center space-x-4 no-underline">
 
-                            <a href='/' className="text-white hover:text-gray-300 no-underline mr-8"><img className="h-6 w-6" src={HomeIcon} alt=""/>Home</a>
-                            <a href="/Course" className="text-white hover:text-gray-300 no-underline mr-8">Courses</a>
-                            <a href="/Profile" className="text-white hover:text-gray-300 no-underline mr-8"><img className="w-6 h-6" src={ProfileIcon} alt="" />Profile</a>
-                            <a href="/Setting" className="text-white hover:text-gray-300 no-underline mr-8"><img className="w-6 h-6" src={SettingIcon} alt="" />Settings</a>
+                            <button onClick={() => navigate('/')} className="text-white hover:text-gray-300 no-underline mr-8"><img className="h-6 w-6" src={HomeIcon} alt=""/>Home</button>
+                            <button onClick={() => navigate('/Course')} className="text-white hover:text-gray-300 no-underline mr-8">Courses</button>
+                            <button onClick={() => navigate('/Profile')} className="text-white hover:text-gray-300 no-underline mr-8"><img className="w-6 h-6" src={ProfileIcon} alt="" />Profile</button>
+                            <button onClick={() => navigate('/Setting')} className="text-white hover:text-gray-300 no-underline mr-8"><img className="w-6 h-6" src={SettingIcon} alt="" />Settings</button>
 
                         </nav>
                     </div>
