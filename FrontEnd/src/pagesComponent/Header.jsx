@@ -7,7 +7,7 @@ function Header(){
     const SettingIcon = "/settings.png"
     const ProfileIcon = 'account.png'
 
-    const [IsAuthorized, setIsAuthorized] = useState(false);
+    const [IsAuthorized, setIsAuthorized] = useState(true);
 
 
     if(window.location.pathname === "/" && !IsAuthorized){
