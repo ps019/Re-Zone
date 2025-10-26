@@ -1,4 +1,4 @@
-
+import { useState } from 'react';
 function FashionSidePanel(){
 
     const [ IsOpen, setIsOpen ] = useState(false);
