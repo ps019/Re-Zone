@@ -1,20 +1,27 @@
 import axios from "axios";
 import { useState } from 'react';
+import { useAuth } from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp(){
 
     const [signUp, setSignUp] = useState(false);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
 
     const [UserName, setUserName] = useState('');
     const [Email, setEmail] = useState('');
     const [Password, setPassword] = useState('');
+    const { login } = useAuth();
+    const navigate = useNavigate();
+
     const SendData = async() => {
         const trimmedUserName = UserName.trim();
         const trimmedEmail = Email.trim();
         const trimmedPassword = Password.trim();
 
         if (!trimmedUserName || !trimmedEmail || !trimmedPassword) {
-            alert('All fields are required');
+            setError('All fields are required');
             return;
         }
 
@@ -25,10 +32,18 @@ function SignUp(){
                 Password: trimmedPassword
             });
             console.log('Signup successful:', response.data);
-            setSignUp(!signUp);
+            if (response.data.token) {
+                login(response.data.token);
+                setSuccess('Signup successful!');
+                setError('');
+                setSignUp(true);
+                setTimeout(() => navigate('/'), 1000);
+            }
             }
         catch(error){
                 console.log('Error sending data:', error);
+                setError(error.response?.data?.message || 'Signup failed');
+                setSuccess('');
             }
         }
     return(
@@ -40,6 +55,14 @@ function SignUp(){
                 <form className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md" onSubmit={(e) => {
                     e.preventDefault();
                     SendData();
+                    if(success){
+                        setTimeout(() => navigate('/'), 1000);
+                        console.log("success");
+                    }
+                    else{
+                        console.log("something went wrong");
+                        setTimeout(() => navigate('/'), 1000);
+                    }
                 }}>
                     <div className="mb-4">
                         <input className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-400 placeholder:italic placeholder:text-sm" type="text" placeholder="Create Username" onChange={(e)=>{
@@ -60,21 +83,6 @@ function SignUp(){
                         <button className="w-full p-2 bg-blue-500 text-white rounded-md hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" type="submit">
                             Create Account
                         </button>
-                        {signUp ? (
-                            <div>
-                                <h2>You are signed in successfully!!</h2>
-                                <p>re-directing to home page in </p>
-
-                                <div>ELSE click here to see your profile
-                                    <a href="/Profile"><button>Profile</button></a>
-                                </div>
-                            </div>
-                        ) : (
-                            <div>
-                                <h2>Something went wrong</h2>
-                                <h3>Try again!!</h3>
-                            </div>
-                        )}
                     </div>
                 </form>
             </div>
