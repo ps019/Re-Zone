@@ -1,6 +1,7 @@
 const express = require('express');
 const UserModel = require('../database/UserSchema');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const router = express.Router();
 
 router.post('/SignUp', async (req, res) => {
@@ -22,7 +23,8 @@ router.post('/SignUp', async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(Password, 10);
     const user = await UserModel.create({ UserName, Email, Password: hashedPassword });
-    res.status(200).json({ message: 'SignUp Successful' });
+    const token = jwt.sign({ userId: user._id, email: user.Email }, process.env.JWT_SECRET || 'your-secret-key', { expiresIn: '1h' });
+    res.status(200).json({ message: 'SignUp Successful', token });
     console.log('SignUp Successful');
   } catch (err) {
     console.log('Error while SignUp: ', err);
