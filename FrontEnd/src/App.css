@@ -56,7 +56,6 @@
 
 .pillar-item.middle {
   filter: brightness(1.2) contrast(1.1);
-  box-shadow: 0 0 50px rgba(255, 255, 255, 0.8), 0 0 100px rgba(255, 255, 255, 0.6);
   transform: scale(1.5) translateY(-25%);
   z-index: 10;
 }
@@ -70,6 +69,7 @@
 
 .pillar-title {
   text-decoration: none;
+  color: white;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
   font-family: 'Historic', sans-serif;
   font-weight: lighter;
@@ -77,11 +77,19 @@
 }
 
 .pillar-item.middle .pillar-title {
-  text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.8);
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.534), 0 0 25px rgba(255, 255, 255, 0.39);
   font-size: 3rem;
+}
+.pillar-item.side .pillar-title {
+  text-shadow: 0 0 50px rgba(255, 255, 255, 1), 0 0 50px rgba(255, 255, 255, 0.8);
 }
 
 .pillar-link {
   text-decoration: none;
 }
-
+.pillar-image{
+  filter: drop-shadow(0 0 5px rgba(255, 217, 0, 0.664)) drop-shadow(0 0 10px rgba(255, 235, 124, 0.459));
+  width: auto;
+  height: 17.5rem;
+  transition: filter 0.5s ease;
+}

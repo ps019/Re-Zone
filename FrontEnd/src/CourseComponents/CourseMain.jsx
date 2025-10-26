@@ -24,7 +24,7 @@ function MainCoursePage(){
     }, []);
 
     return(
-        <div>
+        <div className='bg-black'>
             <div className="pillar-carousel">
                 <div className="pillar-track" style={{ transform: `translateX(-${currentIndex * 33.33}%)` }}>
                     {duplicatedPillars.map((pillar, i) => {
@@ -39,7 +39,7 @@ function MainCoursePage(){
                                         <h1 className="pillar-title text-3xl font-bold mb-4 text-center text-black">
                                             {pillar.heading}
                                         </h1>
-                                        <img src={pillarPictures} alt="pillar" className="w-auto h-70"/>
+                                        <img src={pillarPictures} alt="pillar" className="pillar-image"/>
                                     </div>
                                 </NavLink>
                             </div>
